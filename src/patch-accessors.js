@@ -255,7 +255,7 @@ let InsideAccessors = {
         case Node.DOCUMENT_FRAGMENT_NODE:
           clearNode(this);
           // Document fragments must have no childnodes if setting a blank string
-          if (text.length > 0 || this.nodeType === Node.ELEMENT_NODE) {
+          if (text !== undefined && (text.length > 0 || this.nodeType === Node.ELEMENT_NODE)) {
             this.appendChild(document.createTextNode(text));
           }
           break;
